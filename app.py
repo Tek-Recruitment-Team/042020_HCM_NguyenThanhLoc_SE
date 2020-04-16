@@ -176,6 +176,13 @@ BOOKINGS = [
         'booked': False,
         'amount': 100000
     },
+    {
+        'id': 11,
+        'showtime_id': 2,
+        'sheet_number': 10,
+        'booked': False,
+        'amount': 100000
+    },
 ]
 
 
