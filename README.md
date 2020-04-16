@@ -7,7 +7,7 @@
   + Access Rule: mỗi Group sẽ có thêm Access Rule riêng nhằm để phân tách quyền trên model mà User chỉ được thao tác theo Rule quyết định. Ví dụ: Đối với User Bán Vé chỉ có thể xem được thông tin Phim mà rạp hiện tại đang chiếu, như vậy có nghĩa là trong hệ thống có 3 bộ phim Ironman, Thor, Hulk nhưng rạp mà nhân viên bán vé chỉ đang chiếu Thor và Hulk nên lúc này nhân viên bán vé không thể thấy được thông tin bán vé của Ironman.
 
 2. API
-- Công nghệ/framework: Sử dụng Flask. Sử dụng api_key để xác định request của ví điện tử nào. api_key được thêm vào Header khi request. Momo: 2d4278333671cd4b6b06a74742ebbca1.
+- Công nghệ/framework: Sử dụng Flask. Sử dụng api_key để xác định request của ví điện tử nào. api_key được thêm vào Header khi request. Demo api key cho Momo: 2d4278333671cd4b6b06a74742ebbca1.
 - Dữ liệu mẫu được lưu trong models.py
 - Các Restful API:
  + Rạp:
@@ -26,7 +26,7 @@
  + Ghế ngồi:
     + api/sheets/<int:showtime_id>: lấy danh sách các ghế ngồi trong giờ chiếu, gái trị trả về là dạng object với thông tin mã ghế, số ghế ngồi, tình trạng đặt.
  + Đặt vé:
-   + api/sheet/booking: method PUT. Dữ liệu cần truyền gồm mã ghế và tình trạng đặt. Trả về lỗi khi:
+   + api/sheet/booking: method POST, PUT. Dữ liệu cần truyền gồm mã ghế và tình trạng đặt. Trả về lỗi khi:
     - Nếu ghế không tồn tại.
     - Nếu ghế đã được đặt và tình trạng truyền là True.
     - Nếu ghế chưa được đặt và trạng thái truyền là False.
@@ -36,13 +36,13 @@
 3. Report đế thống kê
 
 4. Setup Docker:
-Dockerfile:
-- Tạo Dockerfile từ image pyhon version3.6,
-- Copy thư mục source code vào /app trong docker.
-- Cài đặt các libraries trong requirements.txt
-- chạy file app.py để start Flask
-Docker compose:
-- Tạo service flask build từ Dockerfile trong cùng thư mục.
-- Chỉnh port 5000
+- Dockerfile:
+  - Tạo Dockerfile từ image pyhon version3.6,
+  - Copy thư mục source code vào /app trong docker.
+  - Cài đặt các libraries trong requirements.txt
+  - chạy file app.py để start Flask
+- Docker compose:
+  - Tạo service flask build từ Dockerfile trong cùng thư mục.
+  - Chỉnh port 5000
 
 5. Setup CD/CD
