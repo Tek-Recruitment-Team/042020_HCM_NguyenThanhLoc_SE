@@ -1,5 +1,5 @@
 import pytest
-from src.app import app
+from app import app
 
 
 @pytest.fixture(scope='module')
@@ -25,7 +25,7 @@ def test_booking(client):
         '/api/sheet/booking?sheet_id=2&book=True',
         headers={'api_key': '2d4278333671cd4b6b06a74742ebbca1'},
     )
-    assert response.status_code == 406
+    assert response.status_code == 400
     # Sheet has been booked
     response = client.post(
         '/api/sheet/booking?sheet_id=4&book=False',
