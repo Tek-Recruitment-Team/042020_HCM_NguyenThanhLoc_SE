@@ -47,4 +47,4 @@
   - Chỉnh port 5000
 
 5. Setup CD/CD
-- TODO
+- Sử dụng Python Application CI của github, chạy pytest cho file test_app.py
