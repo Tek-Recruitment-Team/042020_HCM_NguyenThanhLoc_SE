@@ -110,61 +110,71 @@ BOOKINGS = [
         'id': 1,
         'showtime_id': 1,
         'sheet_number': 1,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 2,
         'showtime_id': 1,
         'sheet_number': 2,
-        'booked': True
+        'booked': True,
+        'amount': 100000
     },
     {
         'id': 3,
         'showtime_id': 1,
         'sheet_number': 3,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 4,
         'showtime_id': 1,
         'sheet_number': 4,
-        'booked': True
+        'booked': True,
+        'amount': 100000
     },
     {
         'id': 5,
         'showtime_id': 1,
         'sheet_number': 5,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 6,
         'showtime_id': 2,
         'sheet_number': 6,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 7,
         'showtime_id': 2,
         'sheet_number': 7,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 8,
         'showtime_id': 2,
         'sheet_number': 8,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 9,
         'showtime_id': 2,
         'sheet_number': 9,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
     {
         'id': 10,
         'showtime_id': 2,
         'sheet_number': 10,
-        'booked': False
+        'booked': False,
+        'amount': 100000
     },
 ]
 
@@ -261,7 +271,8 @@ def get_sheets(showtime_id):
         {
             'id': data['id'],
             'numer': data['sheet_number'],
-            'booked': data['booked']}
+            'booked': data['booked'],
+            'amount': data['amount']}
         for data in datas
     ]), 200
 
@@ -286,11 +297,11 @@ def post_book_sheet():
             # Sheet has already book but request to book a gain
             message = 'Not Acceptable: Sheet %s has already booked!' % sheet_id
             logging.error(message)
-            return jsonify({'message': message}), 406
+            return jsonify({'message': message}), 400
         elif not sheet_value['booked'] and not book:
             message = 'Not Acceptable: Sheet %s has already cancelled!' % sheet_id
             logging.error(message)
-            return jsonify({'message': message}), 406
+            return jsonify({'message': message}), 400
         else:
             sheet_value.update({'booked': book})
     return jsonify({

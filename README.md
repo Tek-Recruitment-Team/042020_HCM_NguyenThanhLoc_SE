@@ -8,7 +8,7 @@
 
 2. API
 - Công nghệ/framework: Sử dụng Flask. Sử dụng api_key để xác định request của ví điện tử nào. api_key được thêm vào Header khi request. Demo api key cho Momo: 2d4278333671cd4b6b06a74742ebbca1.
-- Dữ liệu mẫu được lưu trong models.py
+- Export Postman trong file Flask API.postman_collection.json
 - Các Restful API:
  + Rạp:
   + /api/cinema: method GET, lấy danh sách các rạp chiếu phim.
@@ -24,7 +24,7 @@
   + /api/showtime/cinema/<cinema_id>: method GET, lấy danh sách lịch chiếu theo cinema.
   + /api/showtime/<cinema_id>/<movie_id>: method GET, lấy danh sách lịch chiếu theo cinema và phim.
  + Ghế ngồi:
-    + api/sheets/<int:showtime_id>: lấy danh sách các ghế ngồi trong giờ chiếu, gái trị trả về là dạng object với thông tin mã ghế, số ghế ngồi, tình trạng đặt.
+    + api/sheets/<int:showtime_id>: lấy danh sách các ghế ngồi trong giờ chiếu, gái trị trả về là dạng object với thông tin mã ghế, số ghế ngồi, tình trạng đặt, số tiền.
  + Đặt vé:
    + api/sheet/booking: method POST, PUT. Dữ liệu cần truyền gồm mã ghế và tình trạng đặt. Trả về lỗi khi:
     - Nếu ghế không tồn tại.
@@ -33,7 +33,8 @@
 
 
 
-3. Report đế thống kê
+3. Report đế thống kê:
+- TODO
 
 4. Setup Docker:
 - Dockerfile:
@@ -46,3 +47,4 @@
   - Chỉnh port 5000
 
 5. Setup CD/CD
+- TODO
