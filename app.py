@@ -299,4 +299,5 @@ def post_book_sheet():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # https://stackoverflow.com/questions/26423984/unable-to-connect-to-flask-app-on-docker-from-host
+    app.run(host="0.0.0.0", debug=True)
